@@ -90,5 +90,3 @@ while True:
             print("Enter a whole number between 1 to 9")
         else:
             break
-
-if grid_choice == 1:
