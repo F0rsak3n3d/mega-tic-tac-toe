@@ -30,18 +30,22 @@ __4_|__5_|__6_
   7 |  8 |  9  
 """
 print("\nWhat is Player 1's name?")
-p1 = input("Player 1: ")
+pl1 = input("Player 1: ")
 print("\nWhat is Player 2's name?")
-p2 = input("Player 2: ")
+pl2 = input("Player 2: ")
 
 print("\nChoosing who goes first...")
 time.sleep(2)
 
 first =random.randint(1, 2)
 if first == 1:
-    print(f"\n {p1} goes first and will be X")
+    print(f"\n {pl1} goes first and will be X")
+    p1 = pl1
+    p2 = pl2
 else:
-    print(f"\n {p2} goes first and will be X")
+    print(f"\n {pl2} goes first and will be X")
+    p1 = pl2
+    p2 = pl1
 
 print("Choose which grid")
 base_tic()
@@ -67,6 +71,18 @@ boards = {
     7: [" ", " ", " ", " ", " ", " ", " ", " ", " "],
     8: [" ", " ", " ", " ", " ", " ", " ", " ", " "],
     9: [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+}
+
+mini_board = {
+    1: " ",
+    2: " ",
+    3: " ",
+    4: " ",
+    5: " ",
+    6: " ",
+    7: " ",
+    8: " ",
+    9: " "
 }
 
 def board_lines(board):
@@ -107,16 +123,168 @@ def entire():
     print(f"{b7[1]}    {b8[1]}    {b9[1]}")
     print(f"{b7[2]}    {b8[2]}    {b9[2]}")
 
+def check_win(board_number, board):
+    if board[0] == board[1] == board[2] and board[0] != " ":
+        if board[0] == "X":
+            print(f"{p1} (X) has won {board_number} board")
+            mini_board[board_number] = "X"
+        else:
+            print(f"{p2} (O) has won {board_number} board")
+            mini_board[board_number] = "O"
+
+    if board[3] == board[4] == board[5] and board[3] != " ":
+        if board[3] == "X":
+            print(f"{p1} (X) has won {board_number} board")
+            mini_board[board_number] = "X"
+        else:
+            print(f"{p2} (O) has won {board_number} board")
+            mini_board[board_number] = "O"
+
+    if board[6] == board[7] == board[8] and board[6] != " ":
+        if board[6] == "X":
+            print(f"{p1} (X) has won {board_number} board")
+            mini_board[board_number] = "X"
+        else:
+            print(f"{p2} (O) has won {board_number} board")
+            mini_board[board_number] = "O"
+
+    if board[0] == board[3] == board[6] and board[0] != " ":
+        if board[0] == "X":
+            print(f"{p1} (X) has won {board_number} board")
+            mini_board[board_number] = "X"
+        else:
+            print(f"{p2} (O) has won {board_number} board")
+            mini_board[board_number] = "O"
+
+    if board[1] == board[4] == board[7] and board[1] != " ":
+        if board[1] == "X":
+            print(f"{p1} (X) has won {board_number} board")
+            mini_board[board_number] = "X"
+        else:
+            print(f"{p2} (O) has won {board_number} board")
+            mini_board[board_number] = "O"
+
+    if board[2] == board[5] == board[8] and board[2] != " ":
+        if board[2] == "X":
+            print(f"{p1} (X) has won {board_number} board")
+            mini_board[board_number] = "X"
+        else:
+            print(f"{p2} (O) has won {board_number} board")
+            mini_board[board_number] = "O"
+
+    if board[0] == board[4] == board[8] and board[0] != " ":
+        if board[0] == "X":
+            print(f"{p1} (X) has won {board_number} board")
+            mini_board[board_number] = "X"
+        else:
+            print(f"{p2} (O) has won {board_number} board")
+            mini_board[board_number] = "O"
+
+    if board[2] == board[4] == board[6] and board[2] != " ":
+        if board[2] == "X":
+            print(f"{p1} (X) has won {board_number} board")
+            mini_board[board_number] = "X"
+        else:
+            print(f"{p2} (O) has won {board_number} board")
+            mini_board[board_number] = "O"
+
 game_running = True
+
+def check_full_win():
+
+    global game_running
+
+    if mini_board[1] == mini_board[2] == mini_board[3] and mini_board[1] != " ":
+        print("GAME OVER")
+        if mini_board[1] == "X":
+            print(f"{p1} (X) was the winner")
+        else:
+            print(f"{p2} (O) was the winner")
+        game_running = False
+
+    if mini_board[4] == mini_board[5] == mini_board[6] and mini_board[4] != " ":
+        print("GAME OVER")
+        if mini_board[4] == "X":
+            print(f"{p1} (X) was the winner")
+        else:
+            print(f"{p2} (O) was the winner")
+        game_running = False
+
+    if mini_board[7] == mini_board[8] == mini_board[9] and mini_board[7] != " ":
+        print("GAME OVER")
+        if mini_board[7] == "X":
+            print(f"{p1} (X) was the winner")
+        else:
+            print(f"{p2} (O) was the winner")
+        game_running = False
+
+    if mini_board[1] == mini_board[4] == mini_board[7] and mini_board[7] != " ":
+        print("GAME OVER")
+        if mini_board[7] == "X":
+            print(f"{p1} (X) was the winner")
+        else:
+            print(f"{p2} (O) was the winner")
+        game_running = False
+
+    if mini_board[2] == mini_board[5] == mini_board[8] and mini_board[8] != " ":
+        print("GAME OVER")
+        if mini_board[8] == "X":
+            print(f"{p1} (X) was the winner")
+        else:
+            print(f"{p2} (O) was the winner")
+        game_running = False
+
+    if mini_board[3] == mini_board[6] == mini_board[9] and mini_board[9] != " ":
+        print("GAME OVER")
+        if mini_board[9] == "X":
+            print(f"{p1} (X) was the winner")
+        else:
+            print(f"{p2} (O) was the winner")
+        game_running = False
+
+    if mini_board[1] == mini_board[5] == mini_board[9] and mini_board[9] != " ":
+        print("GAME OVER")
+        if mini_board[9] == "X":
+            print(f"{p1} (X) was the winner")
+        else:
+            print(f"{p2} (O) was the winner")
+        game_running = False
+
+    if mini_board[3] == mini_board[5] == mini_board[7] and mini_board[7] != " ":
+        print("GAME OVER")
+        if mini_board[7] == "X":
+            print(f"{p1} (X) was the winner")
+        else:
+            print(f"{p2} (O) was the winner")
+        game_running = False
+
 current_player = "X"
 current_board = grid_choice
-
+new_board = False
 while game_running:
+    
+    while new_board == True:
+        try:
+            grid_choice = int(input("> "))
+        except ValueError:
+            print("Enter a whole number between 1 to 9")
+        else:
+            if grid_choice > 9 or grid_choice < 1:
+                print("Enter a whole number between 1 to 9")
+            elif mini_board[grid_choice] != " ":
+                print("That board had already been won. Choose another.")
+            else:
+                current_board = grid_choice
+                new_board = False
+                break
+
     print(f"\nBoard: {current_board}")
 
     show_board(boards[current_board])
 
     print(blank)
+
+    print(f"\n{current_player}'s turn")
 
     while True:
         try:
@@ -136,7 +304,12 @@ while game_running:
             else:
                 boards[current_board][spot - 1] = current_player
                 show_board(boards[current_board])
+                check_win(current_board, boards[current_board])
+                check_full_win()
                 current_board = spot
+                if mini_board[current_board] != " ":
+                    print(f"That board has already been filled by {mini_board[current_board]}. You get to choose any board that you want.")
+                    new_board = True
                 if current_player == "X":
                     current_player = "O"
                 else:
