@@ -99,8 +99,6 @@ _{board[3]}__|_{board[4]}__|_{board[5]}__
  {board[6]}  | {board[7]}  | {board[8]}  
 """)
 
-b1 = board_lines(boards[1])
-
 def entire():
     b9 = board_lines(boards[9])
     b1 = board_lines(boards[1])
@@ -124,69 +122,104 @@ def entire():
     print(f"{b7[2]}    {b8[2]}    {b9[2]}")
 
 def check_win(board_number, board):
+
+    global boards
+
     if board[0] == board[1] == board[2] and board[0] != " ":
         if board[0] == "X":
-            print(f"{p1} (X) has won {board_number} board")
+            print(f"{p1} (X) has won board {board_number}")
             mini_board[board_number] = "X"
+            boards[board_number] = ["X", "X", "X", "X", "X", "X", "X", "X", "X"]
+            return
         else:
-            print(f"{p2} (O) has won {board_number} board")
+            print(f"{p2} (O) has won board {board_number}")
             mini_board[board_number] = "O"
+            boards[board_number] = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+            return
 
     if board[3] == board[4] == board[5] and board[3] != " ":
         if board[3] == "X":
-            print(f"{p1} (X) has won {board_number} board")
+            print(f"{p1} (X) has won board {board_number}")
             mini_board[board_number] = "X"
+            boards[board_number] = ["X", "X", "X", "X", "X", "X", "X", "X", "X"]
+            return
         else:
-            print(f"{p2} (O) has won {board_number} board")
+            print(f"{p2} (O) has won board {board_number}")
             mini_board[board_number] = "O"
+            boards[board_number] = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+            return
 
     if board[6] == board[7] == board[8] and board[6] != " ":
         if board[6] == "X":
-            print(f"{p1} (X) has won {board_number} board")
+            print(f"{p1} (X) has won board {board_number}")
             mini_board[board_number] = "X"
+            boards[board_number] = ["X", "X", "X", "X", "X", "X", "X", "X", "X"]
+            return
         else:
-            print(f"{p2} (O) has won {board_number} board")
+            print(f"{p2} (O) has won board {board_number}")
             mini_board[board_number] = "O"
+            boards[board_number] = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+            return
 
     if board[0] == board[3] == board[6] and board[0] != " ":
         if board[0] == "X":
-            print(f"{p1} (X) has won {board_number} board")
+            print(f"{p1} (X) has won board {board_number}")
             mini_board[board_number] = "X"
+            boards[board_number] = ["X", "X", "X", "X", "X", "X", "X", "X", "X"]
+            return
         else:
-            print(f"{p2} (O) has won {board_number} board")
+            print(f"{p2} (O) has won board {board_number}")
             mini_board[board_number] = "O"
+            boards[board_number] = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+            return
 
     if board[1] == board[4] == board[7] and board[1] != " ":
         if board[1] == "X":
-            print(f"{p1} (X) has won {board_number} board")
+            print(f"{p1} (X) has won board {board_number}")
             mini_board[board_number] = "X"
+            boards[board_number] = ["X", "X", "X", "X", "X", "X", "X", "X", "X"]
+            return
         else:
-            print(f"{p2} (O) has won {board_number} board")
+            print(f"{p2} (O) has won board {board_number}")
             mini_board[board_number] = "O"
+            boards[board_number] = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+            return
 
     if board[2] == board[5] == board[8] and board[2] != " ":
         if board[2] == "X":
-            print(f"{p1} (X) has won {board_number} board")
+            print(f"{p1} (X) has won board {board_number}")
             mini_board[board_number] = "X"
+            boards[board_number] = ["X", "X", "X", "X", "X", "X", "X", "X", "X"]
+            return
         else:
-            print(f"{p2} (O) has won {board_number} board")
+            print(f"{p2} (O) has won board {board_number}")
             mini_board[board_number] = "O"
+            boards[board_number] = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+            return
 
     if board[0] == board[4] == board[8] and board[0] != " ":
         if board[0] == "X":
-            print(f"{p1} (X) has won {board_number} board")
+            print(f"{p1} (X) has won board {board_number}")
             mini_board[board_number] = "X"
+            boards[board_number] = ["X", "X", "X", "X", "X", "X", "X", "X", "X"]
+            return
         else:
-            print(f"{p2} (O) has won {board_number} board")
+            print(f"{p2} (O) has won board {board_number}")
             mini_board[board_number] = "O"
+            boards[board_number] = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+            return
 
     if board[2] == board[4] == board[6] and board[2] != " ":
         if board[2] == "X":
-            print(f"{p1} (X) has won {board_number} board")
+            print(f"{p1} (X) has won board {board_number}")
             mini_board[board_number] = "X"
+            boards[board_number] = ["X", "X", "X", "X", "X", "X", "X", "X", "X"]
+            return
         else:
-            print(f"{p2} (O) has won {board_number} board")
+            print(f"{p2} (O) has won board {board_number}")
             mini_board[board_number] = "O"
+            boards[board_number] = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+            return
 
 game_running = True
 
@@ -194,69 +227,89 @@ def check_full_win():
 
     global game_running
 
-    if mini_board[1] == mini_board[2] == mini_board[3] and mini_board[1] != " ":
+    counter = 0
+
+    if mini_board[1] == mini_board[2] == mini_board[3] and mini_board[1] != " " and mini_board[1] != "D":
         print("GAME OVER")
         if mini_board[1] == "X":
             print(f"{p1} (X) was the winner")
         else:
             print(f"{p2} (O) was the winner")
         game_running = False
+        return
 
-    if mini_board[4] == mini_board[5] == mini_board[6] and mini_board[4] != " ":
+    if mini_board[4] == mini_board[5] == mini_board[6] and mini_board[4] != " " and mini_board[4] != "D":
         print("GAME OVER")
         if mini_board[4] == "X":
             print(f"{p1} (X) was the winner")
         else:
             print(f"{p2} (O) was the winner")
         game_running = False
+        return
 
-    if mini_board[7] == mini_board[8] == mini_board[9] and mini_board[7] != " ":
+    if mini_board[7] == mini_board[8] == mini_board[9] and mini_board[7] != " " and mini_board[7] != "D":
         print("GAME OVER")
         if mini_board[7] == "X":
             print(f"{p1} (X) was the winner")
         else:
             print(f"{p2} (O) was the winner")
         game_running = False
+        return
 
-    if mini_board[1] == mini_board[4] == mini_board[7] and mini_board[7] != " ":
+    if mini_board[1] == mini_board[4] == mini_board[7] and mini_board[7] != " " and mini_board[7] != "D":
         print("GAME OVER")
         if mini_board[7] == "X":
             print(f"{p1} (X) was the winner")
         else:
             print(f"{p2} (O) was the winner")
         game_running = False
+        return
 
-    if mini_board[2] == mini_board[5] == mini_board[8] and mini_board[8] != " ":
+    if mini_board[2] == mini_board[5] == mini_board[8] and mini_board[8] != " " and mini_board[8] != "D":
         print("GAME OVER")
         if mini_board[8] == "X":
             print(f"{p1} (X) was the winner")
         else:
             print(f"{p2} (O) was the winner")
         game_running = False
+        return
 
-    if mini_board[3] == mini_board[6] == mini_board[9] and mini_board[9] != " ":
+    if mini_board[3] == mini_board[6] == mini_board[9] and mini_board[9] != " " and mini_board[9] != "D":
         print("GAME OVER")
         if mini_board[9] == "X":
             print(f"{p1} (X) was the winner")
         else:
             print(f"{p2} (O) was the winner")
         game_running = False
+        return
 
-    if mini_board[1] == mini_board[5] == mini_board[9] and mini_board[9] != " ":
+    if mini_board[1] == mini_board[5] == mini_board[9] and mini_board[9] != " " and mini_board[9] != "D":
         print("GAME OVER")
         if mini_board[9] == "X":
             print(f"{p1} (X) was the winner")
         else:
             print(f"{p2} (O) was the winner")
         game_running = False
+        return
 
-    if mini_board[3] == mini_board[5] == mini_board[7] and mini_board[7] != " ":
+    if mini_board[3] == mini_board[5] == mini_board[7] and mini_board[7] != " " and mini_board[7] != "D":
         print("GAME OVER")
         if mini_board[7] == "X":
             print(f"{p1} (X) was the winner")
         else:
             print(f"{p2} (O) was the winner")
         game_running = False
+        return
+    
+    for i in range(1, 10):
+        if mini_board[i] != " ":
+            counter = counter + 1
+            if counter == 9:
+                print("GAME OVER")
+                print("No one won, the game ended in a draw")
+                game_running = False
+                return
+
 
 current_player = "X"
 current_board = grid_choice
@@ -272,7 +325,7 @@ while game_running:
             if grid_choice > 9 or grid_choice < 1:
                 print("Enter a whole number between 1 to 9")
             elif mini_board[grid_choice] != " ":
-                print("That board had already been won. Choose another.")
+                print("That board had already been won or drawn. Choose another.")
             else:
                 current_board = grid_choice
                 new_board = False
@@ -303,8 +356,12 @@ while game_running:
             
             else:
                 boards[current_board][spot - 1] = current_player
-                show_board(boards[current_board])
                 check_win(current_board, boards[current_board])
+                if mini_board[current_board] == " ":
+                    if " " not in boards[current_board]:
+                        print("This board has been drawn")
+                        mini_board[current_board] = "D"
+                show_board(boards[current_board])
                 check_full_win()
                 current_board = spot
                 if mini_board[current_board] != " ":
@@ -321,3 +378,5 @@ while game_running:
     if all == "1":
         print("\n")
         entire()
+
+print("Caleb was here")
