@@ -29,7 +29,7 @@ def console():
     blank = """
     __1_|__2_|__3_ 
     __4_|__5_|__6_ 
-    7 |  8 |  9  
+      7 |  8 |  9  
     """
     print("\nWhat is Player 1's name?")
     pl1 = input("Player 1: ")
@@ -98,7 +98,7 @@ def console():
         print(f"""
     _{board[0]}__|_{board[1]}__|_{board[2]}__
     _{board[3]}__|_{board[4]}__|_{board[5]}__
-    {board[6]}  | {board[7]}  | {board[8]}  
+     {board[6]}  | {board[7]}  | {board[8]}  
     """)
 
     def entire():
@@ -386,40 +386,102 @@ def console():
 #=================================================================================================
 #=====================================graphical game now==========================================
 #=================================================================================================
+def graph():
+    pygame.init()
+    WIDTH = 900
+    HEIGHT = 900
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("Mega Tic Tac Toe")
+    boards = {
+        1: ["X", "O", "X", "O", "X", "O", "X", "O", "X"],
+        2: [" ", " ", " ", " ", " ", " ", " ", "X", " "],
+        3: [" ", " ", " ", " ", " ", " ", "O", " ", " "],
+        4: [" ", " ", " ", " ", " ", "X", " ", " ", " "],
+        5: [" ", " ", " ", " ", "O", " ", " ", " ", " "],
+        6: [" ", " ", " ", "X", " ", " ", " ", " ", " "],
+        7: [" ", " ", "O", " ", " ", " ", " ", " ", " "],
+        8: [" ", "X", " ", " ", " ", " ", " ", " ", " "],
+        9: ["O", " ", " ", " ", " ", " ", " ", " ", " "]
+    }
 
-pygame.init()
-WIDTH = 900
-HEIGHT = 900
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Mega Tic Tac Toe")
+    running = True
+    while running:
+        screen.fill((255, 255, 255))
 
-running = True
-while running:
-    screen.fill((255, 255, 255))
+        pygame.draw.line(screen, (0, 0, 0), (300, 0), (300, 900), 10)
+        pygame.draw.line(screen, (0, 0, 0), (600, 0), (600, 900), 10)
+        pygame.draw.line(screen, (0, 0, 0), (0, 300), (900, 300), 10)
+        pygame.draw.line(screen, (0, 0, 0), (0, 600), (900, 600), 10)
 
-    pygame.draw.line(screen, (0, 0, 0), (300, 0), (300, 900), 10)
-    pygame.draw.line(screen, (0, 0, 0), (600, 0), (600, 900), 10)
-    pygame.draw.line(screen, (0, 0, 0), (0, 300), (900, 300), 10)
-    pygame.draw.line(screen, (0, 0, 0), (0, 600), (900, 600), 10)
+        for x_offset in (0, 300, 600):
+            for y_offset in (0, 300, 600):
+                pygame.draw.line(screen, (0, 0, 0), (100 + x_offset, 0 + y_offset), (100 + x_offset, 300 + y_offset), 5)
+                pygame.draw.line(screen, (0, 0, 0), (200 + x_offset, 0 + y_offset), (200 + x_offset, 300 + y_offset), 5)
 
-    for x_offset in (0, 300, 600):
-        pygame.draw.line(screen, (0, 0, 0), (100 + x_offset, 0), (100 + x_offset, 300), 5)
-        pygame.draw.line(screen, (0, 0, 0), (200 + x_offset, 0), (200 + offset, 300), 5)
-        
-        #pygame.draw.line(screen, (0, 0, 0), (700 + offset, 0), (700 + offset, 300), 5)
-        #pygame.draw.line(screen, (0, 0, 0), (800 + offset, 0), (800 + offset, 300), 5)
+                pygame.draw.line(screen, (0, 0, 0), (0 + x_offset, 100 + y_offset), (300 + x_offset, 100 + y_offset), 5)
+                pygame.draw.line(screen, (0, 0, 0), (0 + x_offset, 200 + y_offset), (300 + x_offset, 200 + y_offset), 5)
 
-        pygame.draw.line(screen, (0, 0, 0), (0, 100 + offset), (300, 100 + offset), 5)
-        pygame.draw.line(screen, (0, 0, 0), (0, 200 + offset), (300, 200 + offset), 5)
+        for board_num in boards:
+            for spot_num in range(9):
+                symbol = boards[board_num][spot_num]
+                col = spot_num % 3
+                row = spot_num // 3
+                if board_num == 1:
+                    board_x = 0
+                    board_y = 0
 
-    for y_offset in (-300, 0, 300):
-        pygame.draw.line(screen, (0, 0, 0), (400 + offset, 0), (400 + offset, 300), 5)
-        pygame.draw.line(screen, (0, 0, 0), (500 + offset, 0), (500 + offset, 300), 5)
+                if board_num ==2:
+                    board_x = 300
+                    board_y = 0
+
+                if board_num ==3:
+                    board_x = 600
+                    board_y = 0
+
+                if board_num == 4:
+                    board_x = 0
+                    board_y = 300
+
+                if board_num == 5:
+                    board_x = 300
+                    board_y = 300
+                
+                if board_num == 6:
+                    board_x = 600
+                    board_y = 300
+
+                
+                if board_num == 7:
+                    board_x = 0
+                    board_y = 600
+
+                if board_num == 8:
+                    board_x = 300
+                    board_y = 600
+                
+                if board_num == 9:
+                    board_x = 600
+                    board_y = 600
+
+                cell_x = board_x + col * 100
+                cell_y = board_y + row * 100
+                middle_x = int(cell_x + 50)
+                middle_y = int(cell_y + 50)
+                
+                if symbol == "X":
+                    pygame.draw.line(screen, (255, 0, 0), (cell_x + 20, cell_y + 20), (cell_x + 80, cell_y + 80), 5)
+                    pygame.draw.line(screen, (255, 0, 0), (cell_x + 80, cell_y + 20), (cell_x + 20, cell_y + 80), 5)
+
+                elif symbol == "O":
+                    pygame.draw.circle(screen, (0, 0, 255), (middle_x, middle_y), 35, 5)
+
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
 
-    pygame.display.update()
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
 
-pygame.quit()
+    pygame.quit()
+
+graph()
